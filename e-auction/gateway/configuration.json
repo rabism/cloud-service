@@ -1,0 +1,127 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/api/product",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5005
+        }
+      ],
+      "UpstreamPathTemplate": "/e-auction/api/v1/seller/add-product",
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "basic",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/product/{productId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+           "Host": "localhost",
+           "Port": 5005
+        }
+      ],
+      "UpstreamPathTemplate": "/e-auction/api/v1/seller/delete/{productId}",
+      "UpstreamHttpMethod": [ "Delete" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "basic",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/product/{sellerEmail}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+           "Host": "localhost",
+           "Port": 5005
+        }
+      ],
+      "UpstreamPathTemplate": "/e-auction/api/v1/seller/get-allproduct/{sellerEmail}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "basic",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/bids",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5005
+        }
+      ],
+      "UpstreamPathTemplate": "/e-auction/api/v1/buyer/place-bid",
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "basic",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/bids/{productId}/{buyerEmail}/{newBidAmount}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+           "Host": "localhost",
+           "Port": 5005
+        }
+      ],
+      "UpstreamPathTemplate": "/e-auction/api/v1/buyer/update-bid/{productId}/{buyerEmail}/{newBidAmount}",
+      "UpstreamHttpMethod": [ "Put" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "basic",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/bids/{productId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5005
+        }
+      ],
+      "UpstreamPathTemplate": "/e-auction/api/v1/seller/show-bids/{productId}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "basic",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/users",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+           "Host": "localhost",
+           "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/api/v1/user/register",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/users/authenticate",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/api/v1/users/authenticate",
+      "UpstreamHttpMethod": [ "Post" ]
+    }
+  ],
+  "GlobalConfiguration": {
+
+  }
+}
